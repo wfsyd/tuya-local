@@ -5,6 +5,8 @@ products:
     model: XZ-CGV3
   - id: 3towulqd
     model: ZG-204L
+  - id: o4mkahkc
+    model: Motion Sensor
 entities:
   - entity: binary_sensor
     name: Motion detected

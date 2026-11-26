@@ -1,0 +1,118 @@
+---
+name: Dual water timer
+products:
+  - id: 1cdtfdtu
+    model: Double Channel Controller
+entities:
+  - entity: valve
+    translation_key: valve_x
+    translation_placeholders:
+      x: "1"
+    class: water
+    dps:
+      - id: 1
+        type: boolean
+        name: valve
+  - entity: valve
+    translation_key: valve_x
+    translation_placeholders:
+      x: "2"
+    class: water
+    dps:
+      - id: 2
+        type: boolean
+        name: valve
+  - entity: number
+    translation_key: timer_x
+    translation_placeholders:
+      x: "1"
+    class: duration
+    category: config
+    dps:
+      - id: 17
+        type: integer
+        name: value
+        unit: min
+        range:
+          min: 1
+          max: 1439
+  - entity: number
+    translation_key: timer_x
+    translation_placeholders:
+      x: "2"
+    class: duration
+    category: config
+    dps:
+      - id: 18
+        type: integer
+        name: value
+        unit: min
+        range:
+          min: 1
+          max: 1439
+  - entity: select
+    name: Weather
+    icon: "mdi:weather-cloudy"
+    category: config
+    dps:
+      - id: 44
+        type: string
+        optional: true
+        name: option
+        mapping:
+          - dps_val: sunny
+            value: Sunny
+            icon: "mdi:weather-sunny"
+          - dps_val: rainy
+            value: Rainy
+            icon: "mdi:weather-rainy"
+  - entity: select
+    name: Weather delay
+    icon: "mdi:weather-cloudy-clock"
+    category: config
+    dps:
+      - id: 45
+        type: string
+        optional: true
+        name: option
+        mapping:
+          - dps_val: cancel
+            value: "Off"
+          - dps_val: 24h
+            value: 24 hours
+          - dps_val: 48h
+            value: 48 hours
+          - dps_val: 72h
+            value: 72 hours
+  - entity: sensor
+    class: battery
+    category: diagnostic
+    dps:
+      - id: 47
+        type: string
+        optional: true
+        name: sensor
+        unit: "%"
+        mapping:
+          - dps_val: low
+            value: 20
+          - dps_val: middle
+            value: 50
+          - dps_val: high
+            value: 80
+  - entity: sensor
+    translation_key: status
+    class: enum
+    category: diagnostic
+    dps:
+      - id: 51
+        type: string
+        optional: true
+        name: sensor
+        mapping:
+          - dps_val: manual
+            value: manual
+          - dps_val: auto
+            value: auto
+          - dps_val: idle
+            value: idle

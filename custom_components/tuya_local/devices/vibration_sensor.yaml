@@ -1,0 +1,75 @@
+---
+name: Vibration sensor
+products:
+  - id: lzdjjfss
+    model: Vibration sensor
+entities:
+  - entity: binary_sensor
+    class: vibration
+    dps:
+      - id: 1
+        type: string
+        name: sensor
+        mapping:
+          - dps_val: normal
+            value: false
+          - dps_val: vibration
+            value: true
+          - dps_val: drop
+            value: true
+          - dps_val: tilt
+            value: true
+  - entity: sensor
+    name: Shock state
+    class: enum
+    icon: "mdi:vibrate"
+    dps:
+      - id: 1
+        type: string
+        name: sensor
+        mapping:
+          - dps_val: normal
+            value: Normal
+          - dps_val: vibration
+            value: Vibration
+          - dps_val: drop
+            value: Drop
+          - dps_val: tilt
+            value: Tilt
+  - entity: sensor
+    class: battery
+    category: diagnostic
+    dps:
+      - id: 4
+        type: integer
+        name: sensor
+        unit: "%"
+        class: measurement
+  - entity: sensor
+    name: Battery state
+    class: enum
+    category: diagnostic
+    hidden: true
+    dps:
+      - id: 3
+        type: string
+        optional: true
+        name: sensor
+        mapping:
+          - dps_val: low
+            value: Low
+          - dps_val: middle
+            value: Medium
+          - dps_val: high
+            value: High
+  - entity: number
+    name: Sensitivity
+    icon: "mdi:vibrate"
+    category: config
+    dps:
+      - id: 6
+        type: integer
+        name: value
+        range:
+          min: 0
+          max: 100

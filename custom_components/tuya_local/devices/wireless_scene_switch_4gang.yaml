@@ -1,0 +1,123 @@
+---
+name: Wireless scene switch
+products:
+  - id: r0o2dahu
+    model: Six-Button Wireless Dimmer Switch
+  - id: opepnasb
+    model: Zigbee Four-gang Wireless Switch
+entities:
+  - entity: event
+    name: Button 1
+    class: button
+    dps:
+      - id: 1
+        type: string
+        name: event
+        optional: true
+        mapping:
+          - dps_val: click
+            value: press_end
+          - dps_val: press
+            value: long_press_end
+          - dps_val: double_click
+            value: multi_press_end
+      - id: 1
+        type: string
+        name: multi_press_count
+        optional: true
+        mapping:
+          - dps_val: double_click
+            value: 2
+          - value: null
+  - entity: event
+    name: Button 2
+    class: button
+    dps:
+      - id: 2
+        type: string
+        name: event
+        optional: true
+        mapping:
+          - dps_val: click
+            value: press_end
+          - dps_val: press
+            value: long_press_end
+          - dps_val: double_click
+            value: multi_press_end
+      - id: 2
+        type: string
+        name: multi_press_count
+        optional: true
+        mapping:
+          - dps_val: double_click
+            value: 2
+          - value: null
+  - entity: event
+    name: Button 3
+    class: button
+    dps:
+      - id: 3
+        type: string
+        name: event
+        optional: true
+        mapping:
+          - dps_val: click
+            value: press_end
+          - dps_val: press
+            value: long_press_end
+          - dps_val: double_click
+            value: multi_press_end
+      - id: 3
+        type: string
+        name: multi_press_count
+        optional: true
+        mapping:
+          - dps_val: double_click
+            value: 2
+          - value: null
+  - entity: event
+    name: Button 4
+    class: button
+    dps:
+      - id: 4
+        type: string
+        name: event
+        optional: true
+        mapping:
+          - dps_val: click
+            value: press_end
+          - dps_val: press
+            value: long_press_end
+          - dps_val: double_click
+            value: multi_press_end
+      - id: 4
+        type: string
+        name: multi_press_count
+        optional: true
+        mapping:
+          - dps_val: double_click
+            value: 2
+          - value: null
+  - entity: sensor
+    class: battery
+    category: diagnostic
+    dps:
+      - id: 10
+        type: integer
+        name: sensor
+        unit: "%"
+        class: measurement
+  - entity: select
+    name: Mode
+    icon: "mdi:remote"
+    category: config
+    dps:
+      - id: 11
+        type: string
+        optional: true
+        name: option
+        mapping:
+          - dps_val: remote_control
+            value: Remote control
+          - dps_val: wireless_switch
+            value: Wireless switch
